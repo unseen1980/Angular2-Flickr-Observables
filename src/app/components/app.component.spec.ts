@@ -5,13 +5,13 @@ import {
   it,
   inject
 } from '@angular/core/testing';
-import { Angular2FlickrObservablesAppComponent } from './app.component';
+import { MainAppComponent } from './app.component';
 
-beforeEachProviders(() => [Angular2FlickrObservablesAppComponent]);
+beforeEachProviders(() => [MainAppComponent]);
 
 describe('App: Angular2FlickrObservables', () => {
   it('should create the app',
-      inject([Angular2FlickrObservablesAppComponent], (app: Angular2FlickrObservablesAppComponent) => {
+      inject([MainAppComponent], (app: MainAppComponent) => {
     expect(app).toBeTruthy();
   }));
 
