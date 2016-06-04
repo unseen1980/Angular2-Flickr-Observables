@@ -1,8 +1,8 @@
 import { Component} from '@angular/core';
 import { FlickrService } from '../services/flickr.service';
 import { FORM_PROVIDERS, FormBuilder, Validators} from '@angular/common';
-import { Observable} from 'rxjs/Observable';
-import 'rxjs/RX';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/Rx';
 
 @Component({
   moduleId: module.id,
