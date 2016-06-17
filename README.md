@@ -12,3 +12,8 @@ Prerequisite: [Angular-CLI](https://github.com/angular/angular-cli)
 5. Change variable key in flickr.service.ts with yours
 6. Ng serve
 7. Go to http://localhost:4200
+
+
+## License
+
+The content of this project is licensed under the [MIT license](http://opensource.org/licenses/mit-license.php).
