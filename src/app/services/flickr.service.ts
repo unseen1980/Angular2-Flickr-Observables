@@ -6,7 +6,7 @@ import 'rxjs/Rx';
 @Injectable()
 export class FlickrService {
     result$: Observable<any>;
-    key = '';
+    key = '9012151640d5486e63780579ff3b9cae';
     constructor(private _http: Http) { };
 
     getResult(query: string) {
