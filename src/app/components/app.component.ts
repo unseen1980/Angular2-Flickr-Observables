@@ -13,12 +13,10 @@ import 'rxjs/Rx';
   providers: [FlickrService]
 })
 export class MainAppComponent implements OnInit {
-  //searchForm :FormGroup;
   searchControl = new FormControl();
 
-
   model$: Observable<any>;
-  photos: any;
+  photos: Object;
   constructor(private _formBuilder: FormBuilder, private _flickrService: FlickrService) {
   }
   ngOnInit() {
