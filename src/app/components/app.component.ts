@@ -1,27 +1,32 @@
-import { Component} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { FlickrService } from '../services/flickr.service';
-import { FORM_PROVIDERS, FormBuilder, Validators} from '@angular/common';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 
 @Component({
-  moduleId: module.id,
+  //Angular-cli doesn't like moduleId'
+  //moduleId: module.id,
   selector: 'app',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
   providers: [FlickrService]
 })
-export class MainAppComponent {
-  searchForm: any;
+export class MainAppComponent implements OnInit {
+  //searchForm :FormGroup;
+  searchControl = new FormControl();
+
+
   model$: Observable<any>;
-  photos: Array<string>;
+  photos: any;
   constructor(private _formBuilder: FormBuilder, private _flickrService: FlickrService) {
-    this.searchForm = this._formBuilder.group({
-      'search': ['', Validators.required]
-    });
-    this.model$ = this.searchForm.controls.search.valueChanges
+  }
+  ngOnInit() {
+    this.searchControl.valueChanges
       .debounceTime(500)
       .switchMap((query: string) => this._flickrService.getResult(query))
-      .subscribe((val: any) => this.photos = val);
+      .subscribe(value => {
+        this.photos = value;
+      });
   }
 }

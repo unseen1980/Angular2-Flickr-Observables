@@ -6,10 +6,11 @@ import 'rxjs/Rx';
 @Injectable()
 export class FlickrService {
     result$: Observable<any>;
-    key = '';
+    key = '9012151640d5486e63780579ff3b9cae';
     constructor(private _http: Http) { };
 
     getResult(query: string) {
+        console.log(query)
         let url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${this.key}&tags=${query}&per_page=12&format=json&nojsoncallback=1`;
         return this._http
             .get(url)
