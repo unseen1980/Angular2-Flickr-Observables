@@ -22,6 +22,7 @@ export class MainAppComponent implements OnInit {
   ngOnInit() {
     this.searchControl.valueChanges
       .debounceTime(500)
+      .distinctUntilChanged()
       .switchMap((query: string) => this._flickrService.getResult(query))
       .subscribe(value => {
         this.photos = value;
